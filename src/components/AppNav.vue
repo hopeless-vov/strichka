@@ -4,13 +4,22 @@ import DropdownMenu from '@/components/ui/DropdownMenu.vue'
 import NavLink from '@/components/ui/NavLink.vue'
 import TextInput from '@/components/ui/TextInput.vue'
 import { faMagnifyingGlass, faSignOut } from '@fortawesome/free-solid-svg-icons'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { RouterLink, useRoute } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
 
 const { t } = useI18n()
 const route = useRoute()
-const search = ref('')
+const router = useRouter()
+const search = ref(typeof route.query.q === 'string' ? route.query.q : '')
+
+watch(search, (value) => {
+  if (value.trim()) {
+    router.push({ name: 'search', query: { q: value } })
+  } else {
+    router.push('/')
+  }
+})
 
 const navItems = [
   { to: '/', key: 'home' },

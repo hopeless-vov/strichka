@@ -22,6 +22,7 @@
     "main": "Welcome to strichka!",
     "shows": "TV Shows",
     "movies": "Movies",
-    "new": "New & Popular"
+    "new": "New & Popular",
+    "search": "Search results for \"{q}\""
   }
 }
