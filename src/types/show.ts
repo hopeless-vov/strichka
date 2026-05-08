@@ -9,4 +9,5 @@ export interface Show {
   status?: string | null
   year?: number | null
   network?: string | null
+  weight?: number
 }

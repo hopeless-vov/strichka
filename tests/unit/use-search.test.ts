@@ -16,6 +16,7 @@ const mockResults: TvMazeSearchResult[] = [
       averageRuntime: 60,
       premiered: '2008-01-20',
       rating: { average: 9.2 },
+      weight: 99,
       image: { medium: 'https://example.com/bb.jpg', original: 'https://example.com/bb-lg.jpg' },
       summary: '<p>A chemistry teacher turns to crime.</p>',
       network: { name: 'AMC' },
@@ -35,6 +36,7 @@ const mockResults: TvMazeSearchResult[] = [
       averageRuntime: 45,
       premiered: null,
       rating: { average: null },
+      weight: 70,
       image: null,
       summary: null,
       network: null,
@@ -85,6 +87,7 @@ describe('useSearch', () => {
       status: 'Ended',
       year: 2008,
       network: 'AMC',
+      weight: 99,
     })
   })
 

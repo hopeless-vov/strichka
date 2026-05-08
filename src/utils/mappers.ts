@@ -13,5 +13,6 @@ export function mapShow(raw: TvMazeShow): Show {
     status: raw.status,
     year: raw.premiered ? new Date(raw.premiered).getFullYear() : null,
     network: raw.network?.name ?? raw.webChannel?.name ?? null,
+    weight: raw.weight,
   }
 }

@@ -9,6 +9,7 @@ export interface TvMazeShow {
   averageRuntime: number | null
   premiered: string | null
   rating: { average: number | null }
+  weight: number
   image: { medium: string; original: string } | null
   summary: string | null
   network: { name: string } | null
