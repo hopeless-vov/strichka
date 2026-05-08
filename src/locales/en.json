@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "brand": "strichka",
+    "home": "Home",
+    "shows": "TV Shows",
+    "movies": "Movies",
+    "new": "New & Popular",
+    "search": "Search...",
+    "userInitial": "V",
+    "logout": "Logout from strichka"
+  },
+  "card": {
+    "noRating": "N/A",
+    "minutesSuffix": "m",
+    "separator": "•"
+  },
+  "carousel": {
+    "scrollLeft": "Scroll left",
+    "scrollRight": "Scroll right"
+  },
+  "pages": {
+    "main": "Welcome to strichka!",
+    "shows": "TV Shows",
+    "movies": "Movies",
+    "new": "New & Popular"
+  }
+}
