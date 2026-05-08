@@ -9,11 +9,11 @@ export function useCarousel<T extends CarouselItem>(items: T[]) {
   const bp = useBreakpoints({ sm: 640, md: 768, lg: 1024, xl: 1280 })
 
   const cardsPerPage = computed(() => {
-    if (bp.smaller('sm').value) return 2
-    if (bp.smaller('md').value) return 3
-    if (bp.smaller('lg').value) return 4
-    if (bp.smaller('xl').value) return 5
-    return 6
+    if (bp.smaller('sm').value) return 3
+    if (bp.smaller('md').value) return 4
+    if (bp.smaller('lg').value) return 5
+    if (bp.smaller('xl').value) return 6
+    return 7
   })
 
   const cardWidthPercent = computed(() => 100 / cardsPerPage.value)

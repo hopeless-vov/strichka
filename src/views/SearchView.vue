@@ -25,10 +25,10 @@ const showEmpty = computed(() => !loading.value && query.value && results.value.
     <!-- Skeleton -->
     <div
       v-if="loading"
-      class="grid grid-cols-2 gap-3 px-[4%] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+      class="grid grid-cols-3 gap-3 px-[4%] sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7"
     >
       <CardSkeleton
-        v-for="n in 12"
+        v-for="n in 14"
         :key="n"
       />
     </div>
@@ -36,7 +36,7 @@ const showEmpty = computed(() => !loading.value && query.value && results.value.
     <!-- Results grid -->
     <div
       v-else-if="results.length"
-      class="grid grid-cols-2 gap-3 px-[4%] sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+      class="grid grid-cols-3 gap-3 px-[4%] sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7"
     >
       <Card
         v-for="show in results"
