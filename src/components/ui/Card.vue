@@ -44,7 +44,7 @@ const emit = defineEmits<{
       </h4>
     </div>
 
-    <div class="pointer-events-none absolute left-0 right-0 top-full z-20 translate-y-0 rounded-b-md bg-zinc-900 p-3 opacity-0 shadow-xl transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
+    <div class="pointer-events-none absolute left-0 right-0 top-full z-20 translate-y-0 rounded-b-md bg-zinc-950/90 p-3 opacity-0 shadow-xl transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
       <div class="mb-2 flex items-center gap-2">
         <Button
           color="primary"
