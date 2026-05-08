@@ -85,7 +85,7 @@ const { list, cardWidthPercent, translateX, hasTransition, next, prev, onTransit
               :image="show.image"
               :rating="show.rating"
               :runtime="show.runtime"
-              :genre="show.genre"
+              :genres="show.genres"
               @click="emit('showClick', show.id)"
               @add-to-list="emit('showAddToList', show.id)"
             />

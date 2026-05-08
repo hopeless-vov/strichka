@@ -4,5 +4,9 @@ export interface Show {
   image?: string
   rating?: number | null
   runtime?: number | null
-  genre?: string | null
+  genres: string[]
+  summary?: string | null
+  status?: string | null
+  year?: number | null
+  network?: string | null
 }

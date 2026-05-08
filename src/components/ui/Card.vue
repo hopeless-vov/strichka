@@ -12,13 +12,13 @@ withDefaults(
     image?: string
     rating?: number | null
     runtime?: number | null
-    genre?: string | null
+    genres?: string[]
   }>(),
   {
     image: undefined,
     rating: undefined,
     runtime: undefined,
-    genre: undefined,
+    genres: () => [],
   },
 )
 
@@ -77,9 +77,9 @@ const emit = defineEmits<{
         </div>
         <span>{{ t('card.separator') }}</span>
         <span>{{ runtime ?? 45 }}{{ t('card.minutesSuffix') }}</span>
-        <template v-if="genre">
+        <template v-if="genres.length">
           <span>{{ t('card.separator') }}</span>
-          <span class="line-clamp-1">{{ genre }}</span>
+          <span class="line-clamp-1">{{ genres[0] }}</span>
         </template>
       </div>
     </div>

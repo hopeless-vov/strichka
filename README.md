@@ -91,6 +91,8 @@ npm run lint:fix
 | Git hooks     | [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) |
 | Variants      | [tailwind-variants](https://www.tailwind-variants.org/) |
 | Utilities     | [VueUse](https://vueuse.org/) |
+| Unit tests    | [Vitest](https://vitest.dev/) + [happy-dom](https://github.com/nicedoc/happy-dom) |
+| API           | [TVMaze](http://www.tvmaze.com/api) (public, no auth) |
 
 ---
 
@@ -98,7 +100,9 @@ npm run lint:fix
 
 ```
 src/
-  api/                   → API clients and request functions
+  api/
+    http.ts              → Base fetch wrapper (BASE_URL from .env)
+    shows.ts             → TVMaze show endpoint functions
   assets/                → Static assets (images, fonts, etc.)
   components/
     ui/                  → Presentational/dumb components (props in, events out — no store/API access)
@@ -107,10 +111,13 @@ src/
   router/
     index.ts             → Route definitions
     middleware/          → Route guards (authGuard, guestGuard, etc.)
-  stores/                → Pinia stores
+  stores/
+    shows.ts             → Shows store (search, cache)
   styles/
     main.css             → Global CSS entry (Tailwind import)
-  types/                 → TypeScript interfaces and type definitions
+  types/
+    show.ts              → App-internal Show interface
+    tvmaze.ts            → Raw TVMaze API response types
   utils/                 → Utility helpers (Sentry, analytics, etc.)
   views/                 → Route-level page components (one per route)
   locales/

@@ -24,5 +24,13 @@
     "movies": "Movies",
     "new": "New & Popular",
     "search": "Search results for \"{q}\""
+  },
+  "search": {
+    "noResults": "No results for \"{q}\".",
+    "suggestions": "Suggestions:",
+    "tip1": "Try different keywords",
+    "tip2": "Looking for a movie or TV show?",
+    "tip3": "Try searching by title, actor, or director",
+    "tip4": "Try a genre like comedy, drama, romance, or sports"
   }
 }
