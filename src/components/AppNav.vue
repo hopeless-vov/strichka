@@ -21,6 +21,10 @@ watch(search, (value) => {
   }
 })
 
+watch(() => route.query.q, (q) => {
+  search.value = typeof q === 'string' ? q : ''
+})
+
 const navItems = [
   { to: '/', key: 'home' },
   { to: '/shows', key: 'shows' },
