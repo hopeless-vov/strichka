@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
 import Icon from '@/components/ui/Icon.vue'
+import { useListStore } from '@/stores/list'
 import { useShowsStore } from '@/stores/shows'
-import { faChevronLeft, faPlay, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faChevronLeft, faPlay, faPlus, faStar } from '@fortawesome/free-solid-svg-icons'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -10,6 +11,7 @@ import { useRouter } from 'vue-router'
 const { t } = useI18n()
 const router = useRouter()
 const showsStore = useShowsStore()
+const listStore = useListStore()
 
 const show = computed(() => showsStore.selectedShow)
 const summary = computed(() => show.value?.summary?.replace(/<[^>]+>/g, '') ?? '')
@@ -122,13 +124,23 @@ function watch() {
             {{ summary }}
           </p>
 
-          <Button
-            color="primary"
-            :icon="faPlay"
-            @click="watch"
-          >
-            {{ t('hero.watch') }}
-          </Button>
+          <div class="flex items-center gap-3">
+            <Button
+              color="primary"
+              :icon="faPlay"
+              @click="watch"
+            >
+              {{ t('hero.watch') }}
+            </Button>
+
+            <Button
+              :color="listStore.has(show.id) ? 'primary' : 'secondary'"
+              :icon="listStore.has(show.id) ? faCheck : faPlus"
+              @click="listStore.toggle(show)"
+            >
+              {{ listStore.has(show.id) ? t('browse.removeFromList') : t('browse.addToList') }}
+            </Button>
+          </div>
         </div>
       </div>
     </div>
