@@ -11,7 +11,7 @@ onMounted(load)
 </script>
 
 <template>
-  <main class="min-h-screen space-y-10 pt-24 pb-12 overflow-x-hidden">
+  <main class="min-h-screen space-y-10 pt-24 pb-12 overflow-x-clip">
     <template v-if="loading">
       <GenreCarousel
         v-for="n in 6"
