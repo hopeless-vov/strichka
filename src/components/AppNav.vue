@@ -34,7 +34,7 @@ const navItems = [
 </script>
 
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-surface/80 backdrop-blur-xl border-b border-surface-elevated/50">
+  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-surface/80 backdrop-blur-xl">
     <div class="flex items-center gap-8">
       <RouterLink
         to="/"
