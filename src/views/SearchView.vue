@@ -4,11 +4,16 @@ import CardSkeleton from '@/components/ui/CardSkeleton.vue'
 import { useSearch } from '@/composables/use-search'
 import { computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const { t } = useI18n()
 const route = useRoute()
+const router = useRouter()
 const { results, loading, search } = useSearch()
+
+function watchShow(show: { title: string; status?: string | null }) {
+  router.push({ name: 'watch', query: { title: show.title, status: show.status ?? undefined } })
+}
 
 const query = computed(() => typeof route.query.q === 'string' ? route.query.q : '')
 
@@ -46,6 +51,7 @@ const showEmpty = computed(() => !loading.value && query.value && results.value.
         :rating="show.rating"
         :runtime="show.runtime"
         :genres="show.genres"
+        @click="watchShow(show)"
       />
     </div>
 

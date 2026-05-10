@@ -6,6 +6,7 @@ import { useCarousel } from '@/composables/use-carousel'
 import type { Show } from '@/types/show'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
 
@@ -26,8 +27,14 @@ const emit = defineEmits<{
   showAddToList: [id: number | string]
 }>()
 
+const router = useRouter()
+
 const { list, cardWidthPercent, translateX, hasTransition, isNavigating, currentPage, totalPages, next, prev, onTransitionEnd } =
   useCarousel<Show>(props.shows)
+
+function watchShow(show: Show) {
+  router.push({ name: 'watch', query: { title: show.title, status: show.status ?? undefined } })
+}
 </script>
 
 <template>
@@ -101,7 +108,7 @@ const { list, cardWidthPercent, translateX, hasTransition, isNavigating, current
               :rating="show.rating"
               :runtime="show.runtime"
               :genres="show.genres"
-              @click="emit('showClick', show.id)"
+              @click="watchShow(show)"
               @add-to-list="emit('showAddToList', show.id)"
             />
           </div>
