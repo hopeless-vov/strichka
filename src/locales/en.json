@@ -49,6 +49,12 @@
   "browse": {
     "back": "Back"
   },
+  "notFound": {
+    "header": "404",
+    "title": "Lost?",
+    "sub": "This page could not be found. There is a lot of interesting information on the main page.",
+    "cta": "Go to Main Page"
+  },
   "search": {
     "noResults": "No results for \"{q}\".",
     "suggestions": "Suggestions:",
