@@ -26,12 +26,12 @@
     "search": "Search results for \"{q}\""
   },
   "home": {
-    "popular": "Popular on strichka",
-    "drama": "Drama",
-    "actionAdventure": "Action & Adventure",
-    "comedy": "Comedy",
-    "thrillerCrime": "Thriller & Crime",
-    "sciFiFantasy": "Sci-Fi & Fantasy"
+    "popular": "Loved by millions",
+    "drama": "Touches the soul",
+    "actionAdventure": "Gets the blood pumping",
+    "comedy": "Drives away boredom",
+    "thrillerCrime": "Keeps you on the edge",
+    "sciFiFantasy": "Escapes reality"
   },
   "search": {
     "noResults": "No results for \"{q}\".",
