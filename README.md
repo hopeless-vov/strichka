@@ -37,6 +37,9 @@ A Netflix-style streaming app built with Vue 3, TypeScript, and Tailwind CSS. Fe
 ## Getting Started
 
 ```bash
+# Copy environment variables
+cp .env.example .env
+
 # Install dependencies
 npm install
 
