@@ -37,6 +37,7 @@ const emit = defineEmits<{
       <img
         :src="image ?? 'https://placehold.co/300x450/18181b/52525b'"
         :alt="title"
+        loading="lazy"
         class="h-full w-full object-cover"
       >
       <h4 class="absolute bottom-0 left-0 right-0 line-clamp-1 p-2 text-xs font-medium text-white transition-opacity duration-200 group-hover:opacity-0">

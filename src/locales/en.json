@@ -25,6 +25,14 @@
     "new": "New & Popular",
     "search": "Search results for \"{q}\""
   },
+  "home": {
+    "popular": "Popular on strichka",
+    "drama": "Drama",
+    "actionAdventure": "Action & Adventure",
+    "comedy": "Comedy",
+    "thrillerCrime": "Thriller & Crime",
+    "sciFiFantasy": "Sci-Fi & Fantasy"
+  },
   "search": {
     "noResults": "No results for \"{q}\".",
     "suggestions": "Suggestions:",
@@ -34,3 +42,4 @@
     "tip4": "Try a genre like comedy, drama, romance, or sports"
   }
 }
+

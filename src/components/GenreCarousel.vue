@@ -31,7 +31,7 @@ const { list, cardWidthPercent, translateX, hasTransition, next, prev, onTransit
 </script>
 
 <template>
-  <section>
+  <section class="relative has-[.group:hover]:z-10">
     <h2 class="mb-4 text-lg font-bold text-white">
       {{ title }}
     </h2>
@@ -57,7 +57,8 @@ const { list, cardWidthPercent, translateX, hasTransition, next, prev, onTransit
           <div
             v-for="n in 6"
             :key="n"
-            class="w-44 shrink-0"
+            class="shrink-0 px-2"
+            :style="{ width: `calc(${cardWidthPercent}%)` }"
           >
             <CardSkeleton />
           </div>
