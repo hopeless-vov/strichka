@@ -1,6 +1,27 @@
 # strichka
 
+> **strichka** (стрічка) — Ukrainian for *tape* or *ribbon*. Like most of my projects, it carries a Ukrainian name — the language has a sound I find beautiful, and it's a small way to bring a piece of my culture along for the ride.
+
 A Netflix-style streaming app built with Vue 3, TypeScript, and Tailwind CSS. Features infinite carousels, genre filtering, search, and a personal watchlist — all powered by the TVMaze API.
+
+---
+
+## Screenshots
+
+**Hero banner**
+![Hero](docs/screenshots/hero.png)
+
+**Carousel**
+![Carousel](docs/screenshots/carousel.png)
+
+**Search**
+![Search](docs/screenshots/search.png)
+
+**My List**
+![My List](docs/screenshots/my-list.png)
+
+**Skeleton loading**
+![Skeletons](docs/screenshots/skeletons.png)
 
 ---
 
