@@ -24,6 +24,9 @@ export function useCarousel<T extends CarouselItem>(items: T[]) {
   const hasTransition = ref(false)
   const direction = ref<'next' | 'prev' | null>(null)
 
+  const currentPage = ref(0)
+  const totalPages = computed(() => Math.ceil(items.length / cardsPerPage.value))
+
   const defaultOffset = computed(() => -(100 / cardsPerPage.value))
   const animationOffset = ref(0)
   const translateX = computed(() => defaultOffset.value + animationOffset.value)
@@ -44,6 +47,7 @@ export function useCarousel<T extends CarouselItem>(items: T[]) {
     if (isNavigating.value) return
     isNavigating.value = true
     direction.value = 'next'
+    currentPage.value = (currentPage.value + 1) % totalPages.value
     hasTransition.value = true
     animationOffset.value = -100
   }
@@ -52,6 +56,7 @@ export function useCarousel<T extends CarouselItem>(items: T[]) {
     if (isNavigating.value) return
     isNavigating.value = true
     direction.value = 'prev'
+    currentPage.value = (currentPage.value - 1 + totalPages.value) % totalPages.value
 
     rotateBackward()
 
@@ -85,6 +90,8 @@ export function useCarousel<T extends CarouselItem>(items: T[]) {
     translateX,
     hasTransition,
     isNavigating,
+    currentPage,
+    totalPages,
     next,
     prev,
     onTransitionEnd,

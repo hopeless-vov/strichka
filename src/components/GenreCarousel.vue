@@ -26,16 +26,27 @@ const emit = defineEmits<{
   showAddToList: [id: number | string]
 }>()
 
-const { list, cardWidthPercent, translateX, hasTransition, isNavigating, next, prev, onTransitionEnd } =
+const { list, cardWidthPercent, translateX, hasTransition, isNavigating, currentPage, totalPages, next, prev, onTransitionEnd } =
   useCarousel<Show>(props.shows)
 </script>
 
 <template>
-  <section class="relative has-[.group:hover]:z-10">
-    <h2 class="mb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 font-heading text-lg font-bold text-white">
-      {{ title }}
-    </h2>
+  <section class="group/section relative has-[.group:hover]:z-10">
+    <div class="flex justify-between items-center mb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <h2 class="font-heading text-lg font-bold text-white flex items-center gap-3">
+        {{ title }}
+      </h2>
 
+      <span class="flex items-end gap-1 pb-px ">
+        <span
+          v-for="i in totalPages"
+          :key="i"
+          class="inline-block h-px w-3 transition-colors duration-300"
+          :class="i - 1 === currentPage ? 'bg-white' : 'bg-white/40'"
+        />
+      </span>
+    </div>
+    
     <div class="group/row relative px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <button
         class="group/btn absolute left-0 top-0 z-10 flex h-full w-[4%] cursor-pointer items-center justify-center rounded-r-sm transition-all duration-200 [background:hsla(0,0%,8%,.5)] hover:[background:hsla(0,0%,8%,.7)]"
