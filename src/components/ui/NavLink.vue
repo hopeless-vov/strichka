@@ -29,7 +29,8 @@ const link = tv({
     <slot />
     <span
       v-if="active"
-      class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 size-1 rounded-full bg-white"
+      class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 size-1 rounded-full bg-white hidden md:block"
     />
   </RouterLink>
 </template>
+s
