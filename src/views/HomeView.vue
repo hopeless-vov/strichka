@@ -51,6 +51,7 @@ function onInfo() {
           :key="row.key"
           :title="t(row.key)"
           :shows="row.shows.slice(0, 30)"
+          :genre-key="row.key"
         />
       </template>
     </div>

@@ -8,7 +8,7 @@ import { useShowsStore } from '@/stores/shows'
 import type { Show } from '@/types/show'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useI18n } from 'vue-i18n'
-import { useRouter } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 
 const { t } = useI18n()
 
@@ -17,10 +17,12 @@ const props = withDefaults(
     title: string
     shows?: Show[]
     loading?: boolean
+    genreKey?: string
   }>(),
   {
     shows: () => [],
     loading: false,
+    genreKey: undefined,
   },
 )
 
@@ -49,9 +51,17 @@ function browseShow(show: Show) {
 <template>
   <section class="group/section relative has-[.group:hover]:z-10">
     <div class="flex justify-between items-center mb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-      <h2 class="font-heading text-lg font-bold text-white flex items-center gap-3">
+      <RouterLink
+        :to="genreKey ? `/genre/${genreKey}` : '/'"
+        class="font-heading text-lg font-bold text-white flex items-center gap-2"
+      >
         {{ title }}
-      </h2>
+        <Icon
+          :icon="faChevronRight"
+          size="small"
+          class="text-muted"
+        />
+      </RouterLink>
 
       <span class="flex items-end gap-1 pb-px ">
         <span

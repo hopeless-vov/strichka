@@ -1,4 +1,5 @@
 import { showsApi } from '@/api/shows'
+import { useShowsStore } from '@/stores/shows'
 import type { Show } from '@/types/show'
 import { mapShow } from '@/utils/mappers'
 import { rankShows } from '@/utils/sort'
@@ -19,6 +20,7 @@ const GENRE_ROWS: { key: string; genres: string[] }[] = [
 ]
 
 export function useHome() {
+  const showsStore = useShowsStore()
   const rows = ref<HomeRow[]>([])
   const loading = ref(false)
   const error = ref<string | null>(null)
@@ -36,6 +38,8 @@ export function useHome() {
           ? all.filter((s) => s.genres.some((g) => genres.includes(g)))
           : all,
       }))
+
+      showsStore.setGenreRows(rows.value)
     } catch (e) {
       error.value = e instanceof Error ? e.message : 'Unknown error'
     } finally {
