@@ -4,6 +4,8 @@
 
 A Netflix-style streaming app built with Vue 3, TypeScript, and Tailwind CSS. Features infinite carousels, genre filtering, search, and a personal watchlist — all powered by the TVMaze API.
 
+**[Live demo →](https://strichka-series.vercel.app/)**
+
 ---
 
 ## Screenshots
@@ -250,6 +252,12 @@ Browse available icons at [fontawesome.com/icons](https://fontawesome.com/icons?
 import { useAuthStore } from '@/stores/auth'
 import MyButton from '@/components/ui/MyButton.vue'
 ```
+
+---
+
+## Behind the Build
+
+A full walkthrough of every decision that shaped this project — from the first sketch to the trickiest component — is in [docs/building-strichka.md](docs/building-strichka.md).
 
 ---
 
