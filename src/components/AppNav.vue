@@ -4,7 +4,8 @@ import Icon from '@/components/ui/Icon.vue'
 import NavLink from '@/components/ui/NavLink.vue'
 import TextInput from '@/components/ui/TextInput.vue'
 import { faBars, faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons'
-import { ref, watch } from 'vue'
+import { useWindowScroll } from '@vueuse/core'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 
@@ -12,6 +13,8 @@ const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const search = ref(typeof route.query.q === 'string' ? route.query.q : '')
+const { y } = useWindowScroll()
+const scrolled = computed(() => y.value > 0)
 
 watch(search, (value) => {
   if (value.trim()) {
@@ -35,7 +38,10 @@ const navItems = [
 </script>
 
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 md:px-8 lg:px-12 xl:px-16 bg-surface/80 backdrop-blur-xl">
+  <nav
+    class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 md:px-8 lg:px-12 xl:px-16 backdrop-blur-md transition-[backdrop-filter] duration-300"
+    :class="scrolled && 'md:backdrop-brightness-50'"
+  >
     <div class="flex items-center gap-8">
       <RouterLink
         to="/"

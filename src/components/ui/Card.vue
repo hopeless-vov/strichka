@@ -68,7 +68,7 @@ const emit = defineEmits<{
         {{ title }}
       </h4>
 
-      <div class="flex items-center gap-1.5 text-xs text-muted">
+      <div class="flex items-center gap-1.5 text-xs text-muted backdrop-blur-xl">
         <div class="flex items-center gap-1 text-rating">
           <Icon
             :icon="faStar"
