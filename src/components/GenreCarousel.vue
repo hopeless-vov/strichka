@@ -35,7 +35,7 @@ const router = useRouter()
 const showsStore = useShowsStore()
 const listStore = useListStore()
 
-const { list, cardWidthPercent, translateX, hasTransition, isNavigating, currentPage, totalPages, next, prev, onTransitionEnd } =
+const { list, cardsPerPage, cardWidthPercent, translateX, hasTransition, isNavigating, currentPage, totalPages, next, prev, onTransitionEnd } =
   useCarousel<Show>(props.shows)
 
 function watchShow(show: Show) {
@@ -93,7 +93,7 @@ function browseShow(show: Show) {
           class="flex"
         >
           <div
-            v-for="n in 6"
+            v-for="n in cardsPerPage"
             :key="n"
             class="shrink-0 px-2"
             :style="{ width: `calc(${cardWidthPercent}%)` }"
