@@ -33,16 +33,13 @@ const emit = defineEmits<{
     class="group relative cursor-pointer transition-transform duration-300 ease-in-out hover:z-10 hover:scale-105"
     @click="emit('click')"
   >
-    <div class="aspect-2/3 overflow-hidden rounded-md bg-zinc-800">
+    <div class="aspect-2/3 overflow-hidden rounded-md bg-zinc-800 group-hover:rounded-b-none">
       <img
         :src="image ?? 'https://placehold.co/300x450/18181b/52525b'"
         :alt="title"
         loading="lazy"
         class="h-full w-full object-cover"
       >
-      <h4 class="absolute bottom-0 left-0 right-0 line-clamp-1 p-2 text-xs font-medium text-white transition-opacity duration-200 group-hover:opacity-0">
-        {{ title }}
-      </h4>
     </div>
 
     <div class="pointer-events-none absolute left-0 right-0 top-full z-20 translate-y-0 rounded-b-md bg-zinc-950/90 p-3 opacity-0 shadow-xl transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
