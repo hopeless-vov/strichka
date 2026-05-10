@@ -16,7 +16,7 @@ const search = ref(typeof route.query.q === 'string' ? route.query.q : '')
 watch(search, (value) => {
   if (value.trim()) {
     router.push({ name: 'search', query: { q: value } })
-  } else {
+  } else if (route.name === 'search') {
     router.push('/')
   }
 })

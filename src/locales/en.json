@@ -40,6 +40,9 @@
   "watch": {
     "back": "Back"
   },
+  "browse": {
+    "back": "Back"
+  },
   "search": {
     "noResults": "No results for \"{q}\".",
     "suggestions": "Suggestions:",

@@ -24,6 +24,7 @@ withDefaults(
 
 const emit = defineEmits<{
   click: []
+  play: []
   addToList: []
 }>()
 </script>
@@ -49,7 +50,7 @@ const emit = defineEmits<{
           size="small"
           :icon="faPlay"
           pill
-          @click.stop="emit('click')"
+          @click.stop="emit('play')"
         />
 
         <Button

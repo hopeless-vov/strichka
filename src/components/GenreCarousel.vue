@@ -3,6 +3,7 @@ import Card from '@/components/ui/Card.vue'
 import CardSkeleton from '@/components/ui/CardSkeleton.vue'
 import Icon from '@/components/ui/Icon.vue'
 import { useCarousel } from '@/composables/use-carousel'
+import { useShowsStore } from '@/stores/shows'
 import type { Show } from '@/types/show'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useI18n } from 'vue-i18n'
@@ -28,12 +29,18 @@ const emit = defineEmits<{
 }>()
 
 const router = useRouter()
+const showsStore = useShowsStore()
 
 const { list, cardWidthPercent, translateX, hasTransition, isNavigating, currentPage, totalPages, next, prev, onTransitionEnd } =
   useCarousel<Show>(props.shows)
 
 function watchShow(show: Show) {
   router.push({ name: 'watch', query: { title: show.title, status: show.status ?? undefined } })
+}
+
+function browseShow(show: Show) {
+  showsStore.selectShow(show)
+  router.push({ name: 'browse' })
 }
 </script>
 
@@ -108,7 +115,8 @@ function watchShow(show: Show) {
               :rating="show.rating"
               :runtime="show.runtime"
               :genres="show.genres"
-              @click="watchShow(show)"
+              @click="browseShow(show)"
+              @play="watchShow(show)"
               @add-to-list="emit('showAddToList', show.id)"
             />
           </div>

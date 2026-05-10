@@ -2,25 +2,27 @@
 import GenreCarousel from '@/components/GenreCarousel.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import { useHome } from '@/composables/use-home'
+import { useShowsStore } from '@/stores/shows'
 import { onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
 const router = useRouter()
+const showsStore = useShowsStore()
 const { rows, loading, load, heroShow } = useHome()
 
 onMounted(load)
 
 function onWatch({ title, status }: { title: string; status?: string }) {
   if (!heroShow.value) return
-  router.push({
-    name: 'watch',
-    query: {
-      title,
-      status,
-    },
-  })
+  router.push({ name: 'watch', query: { title, status } })
+}
+
+function onInfo() {
+  if (!heroShow.value) return
+  showsStore.selectShow(heroShow.value)
+  router.push({ name: 'browse' })
 }
 </script>
 
@@ -30,6 +32,7 @@ function onWatch({ title, status }: { title: string; status?: string }) {
       :show="heroShow"
       :loading="loading"
       @watch="onWatch"
+      @info="onInfo"
     />
 
     <div class="space-y-10 pt-10 pb-12">

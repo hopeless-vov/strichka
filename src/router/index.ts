@@ -33,6 +33,11 @@ const routes: RouteRecordRaw[] = [
     meta: { hideNav: true },
     component: () => import('@/views/WatchView.vue'),
   },
+  {
+    path: '/browse',
+    name: 'browse',
+    component: () => import('@/views/BrowseView.vue'),
+  },
 ]
 
 const router = createRouter({
