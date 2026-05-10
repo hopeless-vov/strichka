@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Button from '@/components/ui/Button.vue'
 import DropdownMenu from '@/components/ui/DropdownMenu.vue'
+import Icon from '@/components/ui/Icon.vue'
 import NavLink from '@/components/ui/NavLink.vue'
 import TextInput from '@/components/ui/TextInput.vue'
-import { faMagnifyingGlass, faSignOut } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
@@ -62,7 +62,7 @@ const navItems = [
       </div>
     </div>
 
-    <div class="flex items-center gap-5">
+    <div class="flex items-center gap-5 group">
       <div class="w-12 overflow-hidden transition-[width] duration-300 focus-within:w-30 md:focus-within:w-56 md:w-44">
         <TextInput
           v-model="search"
@@ -72,11 +72,12 @@ const navItems = [
         />
       </div>
 
-      <DropdownMenu>
-        <template #trigger>
-          <div class="flex size-8 items-center justify-center rounded bg-linear-to-tr from-accent to-accent-active text-xs font-bold text-white">
-            {{ t('nav.userInitial') }}
-          </div>
+      <DropdownMenu class="md:hidden">
+        <template #trigger="{ open }">
+          <Icon
+            :icon="open ? faXmark : faBars"
+            class="text-white transition-transform duration-200"
+          />
         </template>
         <div class="md:hidden">
           <NavLink
@@ -90,13 +91,6 @@ const navItems = [
           </NavLink>
           <hr class="border-surface-elevated">
         </div>
-        <Button
-          color="ghost"
-          :icon="faSignOut"
-          :hug="false"
-        >
-          {{ t('nav.logout') }}
-        </Button>
       </DropdownMenu>
     </div>
   </nav>

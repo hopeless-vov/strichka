@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Icon from '@/components/ui/Icon.vue'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { ref, useId } from 'vue'
 
+withDefaults(defineProps<{ showChevron?: boolean }>(), { showChevron: true })
+
 defineSlots<{
-  trigger(): unknown
+  trigger(props: { open: boolean }): unknown
   default(): unknown
 }>()
 
@@ -35,11 +35,9 @@ function onFocusOut(e: FocusEvent) {
       aria-haspopup="true"
       @click="toggle"
     >
-      <slot name="trigger" />
-      <Icon
-        :icon="faChevronDown"
-        size="small"
-        :class="['text-muted transition-transform duration-200', open && 'rotate-180']"
+      <slot
+        name="trigger"
+        :open="open"
       />
     </button>
 
