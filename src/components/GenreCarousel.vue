@@ -26,7 +26,7 @@ const emit = defineEmits<{
   showAddToList: [id: number | string]
 }>()
 
-const { list, cardWidthPercent, translateX, hasTransition, next, prev, onTransitionEnd } =
+const { list, cardWidthPercent, translateX, hasTransition, isNavigating, next, prev, onTransitionEnd } =
   useCarousel<Show>(props.shows)
 </script>
 
@@ -65,10 +65,13 @@ const { list, cardWidthPercent, translateX, hasTransition, next, prev, onTransit
         </div>
 
         <!-- Carousel track -->
+        <!-- Need to have  pointer-events-none to keep interactions disabled during navigation.
+          Otherwise it may break slide animation if I will do hover on card -->
         <div
           v-else
           ref="innerRef"
           class="flex"
+          :class="{ 'pointer-events-none': isNavigating }"
           :style="{
             transform: `translateX(${translateX}%)`,
             transition: hasTransition ? 'transform 0.45s ease' : 'none',

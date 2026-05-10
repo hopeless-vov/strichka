@@ -84,6 +84,7 @@ export function useCarousel<T extends CarouselItem>(items: T[]) {
     cardWidthPercent,
     translateX,
     hasTransition,
+    isNavigating,
     next,
     prev,
     onTransitionEnd,
