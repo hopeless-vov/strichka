@@ -32,7 +32,7 @@ const { list, cardWidthPercent, translateX, hasTransition, isNavigating, next, p
 
 <template>
   <section class="relative has-[.group:hover]:z-10">
-    <h2 class="mb-4 text-lg font-bold text-white">
+    <h2 class="mb-4 font-heading text-lg font-bold text-white">
       {{ title }}
     </h2>
 

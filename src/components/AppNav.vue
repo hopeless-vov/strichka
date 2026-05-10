@@ -34,13 +34,13 @@ const navItems = [
 </script>
 
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/50">
+  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-surface/80 backdrop-blur-xl border-b border-surface-elevated/50">
     <div class="flex items-center gap-8">
       <RouterLink
         to="/"
         class="flex items-center gap-2.5 group"
       >
-        <span class="text-2xl font-black tracking-tighter text-white">
+        <span class="font-heading text-2xl font-bold tracking-widest uppercase text-white">
           {{ t('nav.brand') }}
         </span>
       </RouterLink>
@@ -69,7 +69,7 @@ const navItems = [
 
       <DropdownMenu>
         <template #trigger>
-          <div class="flex size-8 items-center justify-center rounded bg-linear-to-tr from-red-600 to-purple-600 text-xs font-bold text-white">
+          <div class="flex size-8 items-center justify-center rounded bg-linear-to-tr from-accent to-accent-active text-xs font-bold text-white">
             {{ t('nav.userInitial') }}
           </div>
         </template>
@@ -83,7 +83,7 @@ const navItems = [
           >
             {{ t(`nav.${item.key}`) }}
           </NavLink>
-          <hr class="border-zinc-800">
+          <hr class="border-surface-elevated">
         </div>
         <Button
           color="ghost"

@@ -33,7 +33,7 @@ const emit = defineEmits<{
     class="group relative cursor-pointer transition-transform duration-300 ease-in-out hover:z-10 hover:scale-105"
     @click="emit('click')"
   >
-    <div class="aspect-2/3 overflow-hidden rounded-md bg-zinc-800 group-hover:rounded-b-none">
+    <div class="aspect-2/3 overflow-hidden rounded-md bg-surface-elevated group-hover:rounded-b-none">
       <img
         :src="image ?? 'https://placehold.co/300x450/18181b/52525b'"
         :alt="title"
@@ -42,7 +42,7 @@ const emit = defineEmits<{
       >
     </div>
 
-    <div class="pointer-events-none absolute left-0 right-0 top-full z-20 translate-y-0 rounded-b-md bg-zinc-950/90 p-3 opacity-0 shadow-xl transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
+    <div class="pointer-events-none absolute left-0 right-0 top-full z-20 translate-y-0 rounded-b-md bg-surface/90 p-3 opacity-0 shadow-xl transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
       <div class="mb-2 flex items-center gap-2">
         <Button
           color="primary"
@@ -65,8 +65,8 @@ const emit = defineEmits<{
         {{ title }}
       </h4>
 
-      <div class="flex items-center gap-1.5 text-xs text-zinc-400">
-        <div class="flex items-center gap-1 text-yellow-500">
+      <div class="flex items-center gap-1.5 text-xs text-muted">
+        <div class="flex items-center gap-1 text-rating">
           <Icon
             :icon="faStar"
             size="small"

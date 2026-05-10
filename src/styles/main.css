@@ -1,7 +1,24 @@
+@import "@fontsource-variable/oswald";
+@import "@fontsource-variable/space-grotesk";
 @import "tailwindcss";
+
+@theme {
+  --font-family-heading: 'Oswald Variable', sans-serif;
+  --font-family-body: 'Space Grotesk Variable', sans-serif;
+
+  --color-surface: #0a0705;
+  --color-surface-elevated: #141110;
+  --color-surface-hover: #1e1a17;
+  --color-muted: #8b7d75;
+  --color-accent: #d44d18;
+  --color-accent-hover: #e05a25;
+  --color-accent-active: #b84115;
+  --color-rating: #f5c518;
+}
 
 @layer base {
   body {
-    background-color: theme(--color-zinc-900);
+    background-color: var(--color-surface);
+    font-family: var(--font-family-body);
   }
 }

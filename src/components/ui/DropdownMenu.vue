@@ -29,7 +29,7 @@ function onFocusOut(e: FocusEvent) {
   >
     <button
       type="button"
-      class="flex items-center gap-1 rounded-lg p-1 transition-colors duration-200 hover:bg-zinc-800/50 cursor-pointer"
+      class="flex items-center gap-1 rounded-lg p-1 transition-colors duration-200 hover:bg-surface-elevated/50 cursor-pointer"
       :aria-expanded="open"
       :aria-controls="panelId"
       aria-haspopup="true"
@@ -39,7 +39,7 @@ function onFocusOut(e: FocusEvent) {
       <Icon
         :icon="faChevronDown"
         size="small"
-        :class="['text-zinc-400 transition-transform duration-200', open && 'rotate-180']"
+        :class="['text-muted transition-transform duration-200', open && 'rotate-180']"
       />
     </button>
 
@@ -54,7 +54,7 @@ function onFocusOut(e: FocusEvent) {
       <div
         v-if="open"
         :id="panelId"
-        class="absolute right-0 top-full z-50 mt-3 min-w-56 origin-top-right overflow-hidden rounded-lg border border-zinc-700/50 bg-zinc-900 shadow-xl shadow-black/50"
+        class="absolute right-0 top-full z-50 mt-3 min-w-56 origin-top-right overflow-hidden rounded-lg border border-surface-hover/50 bg-surface shadow-xl shadow-black/50"
         @click="open = false"
       >
         <slot />

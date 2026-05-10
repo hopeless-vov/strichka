@@ -38,11 +38,11 @@ const button = tv({
   variants: {
     color: {
       primary:
-        'bg-red-600 text-white hover:bg-red-500 active:bg-red-700 disabled:bg-zinc-700 disabled:text-zinc-500',
+        'bg-accent text-white hover:bg-accent-hover active:bg-accent-active disabled:bg-surface-hover disabled:text-muted/50',
       secondary:
-        'border border-zinc-700 bg-transparent text-zinc-100 hover:border-zinc-600 hover:bg-zinc-800/50 active:bg-zinc-800 disabled:border-zinc-800 disabled:text-zinc-600',
+        'border border-surface-hover bg-transparent text-zinc-100 hover:border-muted/40 hover:bg-surface-elevated/50 active:bg-surface-elevated disabled:border-surface-elevated disabled:text-muted/60',
       ghost:
-        'bg-transparent text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-100 active:bg-zinc-800 disabled:text-zinc-600',
+        'bg-transparent text-muted hover:bg-surface-elevated/60 hover:text-zinc-100 active:bg-surface-elevated disabled:text-muted/60',
     },
     size: {
       large: 'h-11 text-sm',
@@ -73,9 +73,9 @@ const button = tv({
     { iconOnly: true, hug: true, size: 'large', class: 'w-11' },
     { iconOnly: true, hug: true, size: 'small', class: 'w-8' },
     // Active state overrides
-    { active: true, color: 'primary', class: 'bg-red-700' },
-    { active: true, color: 'secondary', class: 'border-zinc-600 bg-zinc-800 text-zinc-100' },
-    { active: true, color: 'ghost', class: 'bg-zinc-800 text-zinc-100' },
+    { active: true, color: 'primary', class: 'bg-accent-active' },
+    { active: true, color: 'secondary', class: 'border-muted/40 bg-surface-elevated text-zinc-100' },
+    { active: true, color: 'ghost', class: 'bg-surface-elevated text-zinc-100' },
   ],
 })
 </script>

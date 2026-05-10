@@ -19,7 +19,7 @@ const showEmpty = computed(() => !loading.value && query.value && results.value.
 
 <template>
   <main class="min-h-screen pt-24 pb-12">
-    <h1 class="mb-6 px-[4%] text-2xl font-bold text-white">
+    <h1 class="mb-6 px-[4%] font-heading text-2xl font-bold text-white">
       {{ t('pages.search', { q: query }) }}
     </h1>
     <!-- Skeleton -->
@@ -52,7 +52,7 @@ const showEmpty = computed(() => !loading.value && query.value && results.value.
     <!-- Empty state -->
     <div
       v-else-if="showEmpty"
-      class="px-[4%] pt-8 text-zinc-400"
+      class="px-[4%] pt-8 text-muted"
     >
       <p class="mb-3 text-white">
         {{ t('search.noResults', { q: query }) }}

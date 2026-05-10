@@ -33,7 +33,7 @@ const modelValue = defineModel<string>()
 const inputId = useId()
 
 const wrapperVariants = tv({
-  base: 'flex items-center rounded-lg border bg-zinc-900/60 transition-colors duration-200 border-zinc-700 focus-within:border-zinc-500 cursor-text',
+  base: 'flex items-center rounded-lg border bg-surface/60 transition-colors duration-200 border-surface-hover focus-within:border-muted cursor-text',
   variants: {
     disabled: {
       true: 'opacity-50',
@@ -47,7 +47,7 @@ const wrapperVariants = tv({
 })
 
 const labelVariants = tv({
-  base: 'absolute z-10 left-4 pointer-events-none select-none transition-all duration-150 text-zinc-400',
+  base: 'absolute z-10 left-4 pointer-events-none select-none transition-all duration-150 text-muted',
   variants: {
     size: {
       large: [
@@ -91,7 +91,7 @@ const inputClass = computed(() => inputVariants({ size: props.size, hasLeftIcon:
     >
       <div
         v-if="props.iconLeft"
-        class="shrink-0 pl-4 text-zinc-500"
+        class="shrink-0 pl-4 text-muted"
       >
         <Icon
           :icon="props.iconLeft"
@@ -118,7 +118,7 @@ const inputClass = computed(() => inputVariants({ size: props.size, hasLeftIcon:
 
       <div
         v-if="props.iconRight"
-        class="shrink-0 pr-4 text-zinc-500"
+        class="shrink-0 pr-4 text-muted"
       >
         <Icon
           :icon="props.iconRight"

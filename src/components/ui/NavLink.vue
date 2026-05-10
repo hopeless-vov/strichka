@@ -15,7 +15,7 @@ const link = tv({
   variants: {
     active: {
       true: 'text-white',
-      false: 'text-zinc-400 hover:text-white',
+      false: 'text-muted hover:text-white',
     },
   },
 })
