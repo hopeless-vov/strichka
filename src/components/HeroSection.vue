@@ -14,7 +14,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  watch: [id: number | string]
+  watch: [{ title: string; status?: string }]
   info: [id: number | string]
 }>()
 
@@ -48,11 +48,8 @@ const summary = computed(() => props.show?.summary?.replace(/<[^>]+>/g, '') ?? '
     <!-- Content -->
     <div
       class="relative z-10 flex flex-col items-center gap-8
-             px-4 pt-28 pb-20
-             sm:px-6
-             md:flex-row md:items-center md:gap-12 md:px-8 md:pt-36 md:pb-28
-             lg:px-12 lg:gap-16
-             xl:px-16"
+        px-4 pt-28 pb-20 sm:px-6 md:flex-row md:items-center md:gap-12 md:px-8 md:pt-36 md:pb-28
+        lg:px-12 lg:gap-16 xl:px-16"
     >
       <!-- Left: text -->
       <div class="flex-1 min-w-0 text-center md:text-left order-2 md:order-1">
@@ -110,7 +107,10 @@ const summary = computed(() => props.show?.summary?.replace(/<[^>]+>/g, '') ?? '
           <Button
             color="primary"
             :icon="faPlay"
-            @click="emit('watch', show.id)"
+            @click="emit('watch', {
+              title: show.title,
+              status: show.status ?? undefined,
+            })"
           >
             {{ t('hero.watch') }}
           </Button>

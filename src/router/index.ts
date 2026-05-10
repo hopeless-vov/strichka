@@ -27,6 +27,12 @@ const routes: RouteRecordRaw[] = [
     name: 'search',
     component: () => import('@/views/SearchView.vue'),
   },
+  {
+    path: '/watch',
+    name: 'watch',
+    meta: { hideNav: true },
+    component: () => import('@/views/WatchView.vue'),
+  },
 ]
 
 const router = createRouter({

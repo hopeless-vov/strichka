@@ -37,6 +37,9 @@
     "thrillerCrime": "Keeps you on the edge",
     "sciFiFantasy": "Escapes reality"
   },
+  "watch": {
+    "back": "Back"
+  },
   "search": {
     "noResults": "No results for \"{q}\".",
     "suggestions": "Suggestions:",

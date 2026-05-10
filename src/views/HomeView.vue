@@ -4,11 +4,24 @@ import HeroSection from '@/components/HeroSection.vue'
 import { useHome } from '@/composables/use-home'
 import { onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
+const router = useRouter()
 const { rows, loading, load, heroShow } = useHome()
 
 onMounted(load)
+
+function onWatch({ title, status }: { title: string; status?: string }) {
+  if (!heroShow.value) return
+  router.push({
+    name: 'watch',
+    query: {
+      title,
+      status,
+    },
+  })
+}
 </script>
 
 <template>
@@ -16,6 +29,7 @@ onMounted(load)
     <HeroSection
       :show="heroShow"
       :loading="loading"
+      @watch="onWatch"
     />
 
     <div class="space-y-10 pt-10 pb-12">
