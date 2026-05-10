@@ -7,7 +7,8 @@
     "new": "New & Popular",
     "search": "Search...",
     "userInitial": "V",
-    "logout": "Logout from strichka"
+    "logout": "Logout from strichka",
+    "list": "My List"
   },
   "card": {
     "noRating": "N/A",
@@ -27,7 +28,12 @@
     "shows": "TV Shows",
     "movies": "Movies",
     "new": "New & Popular",
-    "search": "Search results for \"{q}\""
+    "search": "Search results for \"{q}\"",
+    "list": "My List"
+  },
+  "list": {
+    "empty": "Your list is empty.",
+    "emptySub": "Add shows by clicking the + button on any card."
   },
   "home": {
     "popular": "Loved by millions",

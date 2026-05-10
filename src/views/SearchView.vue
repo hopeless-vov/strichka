@@ -2,6 +2,7 @@
 import Card from '@/components/ui/Card.vue'
 import CardSkeleton from '@/components/ui/CardSkeleton.vue'
 import { useSearch } from '@/composables/use-search'
+import { useListStore } from '@/stores/list'
 import { useShowsStore } from '@/stores/shows'
 import { computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -11,6 +12,7 @@ const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const showsStore = useShowsStore()
+const listStore = useListStore()
 const { results, loading, search } = useSearch()
 
 function watchShow(show: { title: string; status?: string | null }) {
@@ -58,8 +60,10 @@ const showEmpty = computed(() => !loading.value && query.value && results.value.
         :rating="show.rating"
         :runtime="show.runtime"
         :genres="show.genres"
+        :in-list="listStore.has(show.id)"
         @click="browseShow(show)"
         @play="watchShow(show)"
+        @add-to-list="listStore.toggle(show)"
       />
     </div>
 

@@ -38,6 +38,11 @@ const routes: RouteRecordRaw[] = [
     name: 'browse',
     component: () => import('@/views/BrowseView.vue'),
   },
+  {
+    path: '/my-list',
+    name: 'list',
+    component: () => import('@/views/MyListView.vue'),
+  },
 ]
 
 const router = createRouter({

@@ -30,6 +30,7 @@ const navItems = [
   { to: '/shows', key: 'shows' },
   { to: '/movies', key: 'movies' },
   { to: '/new', key: 'new' },
+  { to: '/my-list', key: 'list' },
 ] as const
 </script>
 

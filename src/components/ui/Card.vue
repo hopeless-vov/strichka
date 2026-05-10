@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
 import Icon from '@/components/ui/Icon.vue'
-import { faPlay, faPlus, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faPlay, faPlus, faStar } from '@fortawesome/free-solid-svg-icons'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -13,12 +13,14 @@ withDefaults(
     rating?: number | null
     runtime?: number | null
     genres?: string[]
+    inList?: boolean
   }>(),
   {
     image: undefined,
     rating: undefined,
     runtime: undefined,
     genres: () => [],
+    inList: false,
   },
 )
 
@@ -54,9 +56,9 @@ const emit = defineEmits<{
         />
 
         <Button
-          color="secondary"
+          :color="inList ? 'primary' : 'secondary'"
           size="small"
-          :icon="faPlus"
+          :icon="inList ? faCheck : faPlus"
           pill
           @click.stop="emit('addToList')"
         />
