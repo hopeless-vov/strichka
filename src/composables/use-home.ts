@@ -12,9 +12,9 @@ export interface HomeRow {
 
 const GENRE_ROWS: { key: string; genres: string[] }[] = [
   { key: 'home.popular', genres: [] },
-  { key: 'home.drama', genres: ['Drama'] },
   { key: 'home.actionAdventure', genres: ['Action', 'Adventure'] },
   { key: 'home.comedy', genres: ['Comedy'] },
+  { key: 'home.drama', genres: ['Drama'] },
   { key: 'home.thrillerCrime', genres: ['Thriller', 'Crime'] },
   { key: 'home.sciFiFantasy', genres: ['Science-Fiction', 'Fantasy'] },
 ]
