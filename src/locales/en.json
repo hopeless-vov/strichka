@@ -33,12 +33,30 @@
     "emptySub": "Add shows by clicking the + button on any card."
   },
   "home": {
-    "popular": "Loved by millions",
-    "drama": "Touches the soul",
-    "actionAdventure": "Gets the blood pumping",
-    "comedy": "Drives away boredom",
-    "thrillerCrime": "Keeps you on the edge",
-    "sciFiFantasy": "Escapes reality"
+    "popular": {
+      "title": "Loved by millions",
+      "url": "popular"
+    },
+    "drama": {
+      "title": "Touches the soul",
+      "url": "drama"
+    },
+    "actionAdventure": {
+      "title": "Gets the blood pumping",
+      "url": "action-adventure"
+    },
+    "comedy": {
+      "title": "Drives away boredom",
+      "url": "comedy"
+    },
+    "thrillerCrime": {
+      "title": "Keeps you on the edge",
+      "url": "thriller-crime"
+    },
+    "sciFiFantasy": {
+      "title": "Escapes reality",
+      "url": "sci-fi-fantasy"
+    }
   },
   "watch": {
     "back": "Back"

@@ -49,7 +49,7 @@ function onInfo() {
         <GenreCarousel
           v-for="row in rows"
           :key="row.key"
-          :title="t(row.key)"
+          :title="t(`${row.key}.title`)"
           :shows="row.shows.slice(0, 30)"
           :genre-key="row.key"
         />

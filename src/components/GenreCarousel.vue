@@ -52,7 +52,7 @@ function browseShow(show: Show) {
   <section class="group/section relative has-[.group:hover]:z-10">
     <div class="flex justify-between items-center mb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <RouterLink
-        :to="genreKey ? `/genre/${genreKey}` : '/'"
+        :to="genreKey ? `/genre/${t(`${genreKey}.url`)}` : '/'"
         class="font-heading text-lg font-bold text-white flex items-center gap-2"
       >
         {{ title }}

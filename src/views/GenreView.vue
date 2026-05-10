@@ -20,8 +20,8 @@ const loading = ref(false)
 const { load } = useHome()
 
 const genreKey = computed(() => route.params.key as string)
-const genreRow = computed(() => showsStore.genreRows.find((r) => r.key === genreKey.value))
-const title = computed(() => (genreRow.value ? t(genreRow.value.key) : ''))
+const genreRow = computed(() => showsStore.genreRows.find((r) => t(`${r.key}.url`) === genreKey.value))
+const title = computed(() => (genreRow.value ? t(`${genreRow.value.key}.title`) : ''))
 const shows = computed(() => genreRow.value?.shows ?? [])
 
 onMounted(async () => {
