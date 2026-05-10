@@ -8,7 +8,7 @@ A walkthrough of every decision that shaped this project — from the first sket
 
 ### Why this kind of app?
 
-The idea didn't come from Netflix specifically. I spent time browsing platforms that focus on movies and TV — [Netflix](https://www.netflix.com/browse), [Amazon Prime](https://www.primevideo.com/), [IMDb](https://www.imdb.com/), (planetakino)[https://planetakino.ua/] — picking out the elements I liked from each. I also generated around six or seven design mockups, but honestly none of them felt right. The card styles and sliders weren't landing.
+The idea didn't come from Netflix specifically. I spent time browsing platforms that focus on movies and TV — [Netflix](https://www.netflix.com/browse), [Amazon Prime](https://www.primevideo.com/), [IMDb](https://www.imdb.com/), [planetakino](https://planetakino.ua/) — picking out the elements I liked from each. I also generated around six or seven design mockups, but honestly none of them felt right. The card styles and sliders weren't landing.
 
 Two things eventually made Netflix the reference point:
 
