@@ -2,7 +2,7 @@ import { showsApi } from '@/api/shows'
 import type { Show } from '@/types/show'
 import { mapShow } from '@/utils/mappers'
 import { rankShows } from '@/utils/sort'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 export interface HomeRow {
   key: string
@@ -43,5 +43,7 @@ export function useHome() {
     }
   }
 
-  return { rows, loading, error, load }
+  const heroShow = computed(() => rows.value[0]?.shows.find((s) => s.image && s.summary) ?? null)
+
+  return { rows, loading, error, load, heroShow }
 }
