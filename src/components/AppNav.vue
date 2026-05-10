@@ -40,6 +40,10 @@ const navItems = [
         to="/"
         class="flex items-center gap-2.5 group"
       >
+        <span class="relative flex size-2 shrink-0">
+          <span class="absolute inline-flex size-full rounded-full bg-accent opacity-75 animate-ping" />
+          <span class="relative size-2 rounded-full bg-accent" />
+        </span>
         <span class="font-heading text-2xl font-bold tracking-widest uppercase text-white">
           {{ t('nav.brand') }}
         </span>

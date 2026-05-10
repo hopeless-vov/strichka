@@ -11,7 +11,7 @@ withDefaults(
 )
 
 const link = tv({
-  base: 'text-sm font-medium transition-colors duration-200',
+  base: 'relative text-sm font-medium transition-colors duration-200',
   variants: {
     active: {
       true: 'text-white',
@@ -27,5 +27,9 @@ const link = tv({
     :class="link({ active })"
   >
     <slot />
+    <span
+      v-if="active"
+      class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 size-1 rounded-full bg-white"
+    />
   </RouterLink>
 </template>
