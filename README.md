@@ -1,6 +1,6 @@
 # strichka
 
-A Vue 3 starter project with TypeScript, Tailwind CSS, Pinia, Vue Router, and Playwright e2e tests.
+A Netflix-style streaming app built with Vue 3, TypeScript, and Tailwind CSS. Features infinite carousels, genre filtering, search, and a personal watchlist — all powered by the TVMaze API.
 
 ---
 
@@ -8,8 +8,8 @@ A Vue 3 starter project with TypeScript, Tailwind CSS, Pinia, Vue Router, and Pl
 
 | Tool    | Version  |
 |---------|----------|
-| Node.js | v25.2.1  |
-| npm     | 11.7.0   |
+| Node.js | >= 22    |
+| npm     | >= 10    |
 
 ---
 
@@ -96,6 +96,53 @@ npm run lint:fix
 
 ---
 
+## Design System
+
+The app uses a warm, cinematic color palette with custom typography:
+
+### Typography
+
+| Usage    | Font                                                                 |
+|----------|----------------------------------------------------------------------|
+| Headings | [Oswald Variable](https://fonts.google.com/specimen/Oswald) — bold, condensed, uppercase |
+| Body     | [Space Grotesk Variable](https://fonts.google.com/specimen/Space+Grotesk) — geometric, modern |
+
+Fonts are self-hosted via `@fontsource-variable` (no external CDN).
+
+### Colors
+
+| Token              | Value     | Usage                        |
+|--------------------|-----------|------------------------------|
+| `surface`          | `#0a0705` | Main background              |
+| `surface-elevated` | `#141110` | Cards, dropdowns             |
+| `surface-hover`    | `#1e1a17` | Hover states                 |
+| `muted`            | `#8b7d75` | Secondary text               |
+| `accent`           | `#d44d18` | Primary buttons, brand       |
+| `accent-hover`     | `#e05a25` | Button hover                 |
+| `accent-active`    | `#b84115` | Button pressed               |
+| `rating`           | `#f5c518` | Star ratings (IMDb yellow)   |
+
+### Fluid Typography
+
+Text sizes scale responsively using CSS `clamp()`. Defined in `src/styles/main.css` via Tailwind v4 `@theme`.
+
+---
+
+## CI/CD
+
+GitHub Actions runs on every PR and push to `main`:
+
+| Job          | Command                 | Purpose                    |
+|--------------|-------------------------|----------------------------|
+| **Lint**     | `npm run lint`          | ESLint checks              |
+| **Type Check** | `npx vue-tsc -b`      | TypeScript validation      |
+| **Unit Tests** | `npm run test:unit:run` | Vitest unit tests        |
+| **E2E Tests** | `npm run test:e2e`     | Playwright browser tests   |
+
+All jobs run in parallel for fast feedback. E2E test reports are uploaded as artifacts on failure.
+
+---
+
 ## Project Structure
 
 ```
@@ -179,3 +226,9 @@ Browse available icons at [fontawesome.com/icons](https://fontawesome.com/icons?
 import { useAuthStore } from '@/stores/auth'
 import MyButton from '@/components/ui/MyButton.vue'
 ```
+
+---
+
+## License
+
+[MIT](LICENSE)
