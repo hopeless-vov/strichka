@@ -32,11 +32,11 @@ const { list, cardWidthPercent, translateX, hasTransition, isNavigating, next, p
 
 <template>
   <section class="relative has-[.group:hover]:z-10">
-    <h2 class="mb-4 font-heading text-lg font-bold text-white">
+    <h2 class="mb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 font-heading text-lg font-bold text-white">
       {{ title }}
     </h2>
 
-    <div class="group/row relative px-[4%]">
+    <div class="group/row relative px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <button
         class="group/btn absolute left-0 top-0 z-10 flex h-full w-[4%] cursor-pointer items-center justify-center rounded-r-sm transition-all duration-200 [background:hsla(0,0%,8%,.5)] hover:[background:hsla(0,0%,8%,.7)]"
         :aria-label="t('carousel.scrollLeft')"
@@ -44,7 +44,7 @@ const { list, cardWidthPercent, translateX, hasTransition, isNavigating, next, p
       >
         <Icon
           :icon="faChevronLeft"
-          class="text-white opacity-0 transition-all duration-200 group-hover/row:opacity-100 group-hover/btn:scale-125"
+          class="text-white opacity-100 transition-all duration-200 md:opacity-0 group-hover/row:opacity-100 group-hover/btn:scale-125"
         />
       </button>
 
@@ -104,7 +104,7 @@ const { list, cardWidthPercent, translateX, hasTransition, isNavigating, next, p
       >
         <Icon
           :icon="faChevronRight"
-          class="text-white opacity-0 transition-all duration-200 group-hover/row:opacity-100 group-hover/btn:scale-125"
+          class="text-white opacity-100 transition-all duration-200 md:opacity-0 group-hover/row:opacity-100 group-hover/btn:scale-125"
         />
       </button>
     </div>

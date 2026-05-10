@@ -34,7 +34,7 @@ const navItems = [
 </script>
 
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-surface/80 backdrop-blur-xl">
+  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 md:px-8 lg:px-12 xl:px-16 bg-surface/80 backdrop-blur-xl">
     <div class="flex items-center gap-8">
       <RouterLink
         to="/"
@@ -62,7 +62,7 @@ const navItems = [
     </div>
 
     <div class="flex items-center gap-5">
-      <div class="w-12 overflow-hidden transition-[width] duration-300 focus-within:w-44 md:focus-within:w-56 md:w-44">
+      <div class="w-12 overflow-hidden transition-[width] duration-300 focus-within:w-30 md:focus-within:w-56 md:w-44">
         <TextInput
           v-model="search"
           size="small"
