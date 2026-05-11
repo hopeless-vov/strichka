@@ -160,6 +160,24 @@ Text sizes scale responsively using CSS `clamp()`. Defined in `src/styles/main.c
 
 ---
 
+## Deployment
+
+The app is deployed on [Vercel](https://vercel.com/).
+
+Because this is a SPA, all routes are handled client-side by Vue Router. Without extra config, refreshing on any route other than `/` causes a 404 — Vercel looks for a real file at that path and finds nothing.
+
+The `vercel.json` at the project root fixes this by rewriting every request to `index.html`:
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+Vue Router then reads the URL and renders the correct page. This is standard practice for any SPA — Netlify uses a `_redirects` file, Nginx uses `try_files`, but the idea is the same everywhere.
+
+---
+
 ## CI/CD
 
 GitHub Actions runs on every PR and push to `main`:
