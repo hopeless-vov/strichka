@@ -33,8 +33,7 @@ onMounted(async () => {
 })
 
 function browseShow(show: (typeof shows.value)[number]) {
-  showsStore.selectShow(show)
-  router.push({ name: 'browse' })
+  router.push({ name: 'browse', params: { id: show.id } })
 }
 
 function watchShow(show: (typeof shows.value)[number]) {

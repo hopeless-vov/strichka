@@ -1,22 +1,19 @@
 <script setup lang="ts">
 import Card from '@/components/ui/Card.vue'
 import { useListStore } from '@/stores/list'
-import { useShowsStore } from '@/stores/shows'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
 const router = useRouter()
 const listStore = useListStore()
-const showsStore = useShowsStore()
 
 function watchShow(show: { title: string; status?: string | null }) {
   router.push({ name: 'watch', query: { title: show.title, status: show.status ?? undefined } })
 }
 
 function browseShow(show: (typeof listStore.items)[number]) {
-  showsStore.selectShow(show)
-  router.push({ name: 'browse' })
+  router.push({ name: 'browse', params: { id: show.id } })
 }
 </script>
 

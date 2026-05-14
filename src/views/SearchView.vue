@@ -3,7 +3,6 @@ import Card from '@/components/ui/Card.vue'
 import CardSkeleton from '@/components/ui/CardSkeleton.vue'
 import { useSearch } from '@/composables/use-search'
 import { useListStore } from '@/stores/list'
-import { useShowsStore } from '@/stores/shows'
 import { computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
@@ -11,7 +10,6 @@ import { useRoute, useRouter } from 'vue-router'
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
-const showsStore = useShowsStore()
 const listStore = useListStore()
 const { results, loading, search } = useSearch()
 
@@ -20,8 +18,7 @@ function watchShow(show: { title: string; status?: string | null }) {
 }
 
 function browseShow(show: (typeof results.value)[number]) {
-  showsStore.selectShow(show)
-  router.push({ name: 'browse' })
+  router.push({ name: 'browse', params: { id: show.id } })
 }
 
 const query = computed(() => typeof route.query.q === 'string' ? route.query.q : '')
