@@ -2,7 +2,7 @@
 
 > **strichka** (стрічка) — Ukrainian for *tape* or *ribbon*. Like most of my projects, it carries a Ukrainian name — the language has a sound I find beautiful, and it's a small way to bring a piece of my culture along for the ride.
 
-A Netflix-style streaming app built with Vue 3, TypeScript, and Tailwind CSS. Features infinite carousels, genre filtering, search, and a personal watchlist — all powered by the TVMaze API.
+A Netflix-style streaming app built with Vue 3, TypeScript, and Tailwind CSS. Features infinite carousels, genre filtering, search, a personal watchlist, and full show detail pages with seasons, episodes, and cast — all powered by the TVMaze API.
 
 **[Live demo →](https://strichka-series.vercel.app/)**
 
@@ -75,7 +75,7 @@ npm run test:unit
 npm run test:unit:run
 ```
 
-Unit tests live in `tests/unit/`. They cover composable logic (e.g. `useCarousel`).
+Unit tests live in `tests/unit/`. They cover composable logic (`useCarousel`, `useSearch`, `useShowDetails`), Pinia stores (`useListStore`, `useShowsStore`), and utilities (`rankShows`, mappers).
 
 ### E2E tests (Playwright)
 
@@ -199,23 +199,25 @@ All jobs run in parallel for fast feedback. E2E test reports are uploaded as art
 src/
   api/
     http.ts              → Base fetch wrapper (BASE_URL from .env)
-    shows.ts             → TVMaze show endpoint functions
+    shows.ts             → TVMaze endpoints (search, catalogue, show details with embed)
   assets/                → Static assets (images, fonts, etc.)
   components/
     ui/                  → Presentational/dumb components (props in, events out — no store/API access)
     (root)               → Smart components that compose ui/ with stores/composables
   composables/           → Reusable composition functions (use*)
+    use-show-details.ts  → Fetches show + episodes + cast + seasons via TVMaze embed
   router/
     index.ts             → Route definitions
-    middleware/          → Route guards (authGuard, guestGuard, etc.)
   stores/
-    shows.ts             → Shows store (search, cache)
+    shows.ts             → Genre rows cache (used by home/genre pages)
+    list.ts              → My List watchlist (persisted to localStorage)
   styles/
     main.css             → Global CSS entry (Tailwind import)
   types/
-    show.ts              → App-internal Show interface
+    show.ts              → App-internal Show, Episode, Season, ShowDetails interfaces
     tvmaze.ts            → Raw TVMaze API response types
-  utils/                 → Utility helpers (Sentry, analytics, etc.)
+  utils/
+    mappers.ts           → Maps TVMaze API responses to internal types
   views/                 → Route-level page components (one per route)
   locales/
     en.json              → English translation strings
