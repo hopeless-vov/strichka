@@ -8,11 +8,10 @@ const route = useRoute()
 <template>
   <AppNav v-if="!route.meta.hideNav" />
   <RouterView v-slot="{ Component }">
-    <Transition
-      name="page"
-      mode="out-in"
-    >
-      <component :is="Component" />
+    <Transition name="page">
+      <component
+        :is="Component"
+      />
     </Transition>
   </RouterView>
 </template>
