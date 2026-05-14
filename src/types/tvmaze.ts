@@ -20,3 +20,37 @@ export interface TvMazeSearchResult {
   score: number
   show: TvMazeShow
 }
+
+export interface TvMazeEpisode {
+  id: number
+  name: string
+  season: number
+  number: number
+  airdate: string | null
+  runtime: number | null
+  image: { medium: string; original: string } | null
+  summary: string | null
+}
+
+export interface TvMazeSeason {
+  id: number
+  number: number
+  episodeOrder: number | null
+  premiereDate: string | null
+  endDate: string | null
+  image: { medium: string; original: string } | null
+}
+
+export interface TvMazeCastMember {
+  person: { id: number; name: string; image: { medium: string; original: string } | null }
+  character: { id: number; name: string }
+}
+
+export interface TvMazeShowDetailed extends TvMazeShow {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  _embedded?: {
+    episodes?: TvMazeEpisode[]
+    seasons?: TvMazeSeason[]
+    cast?: TvMazeCastMember[]
+  }
+}

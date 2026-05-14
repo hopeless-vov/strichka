@@ -4,7 +4,6 @@ import CardSkeleton from '@/components/ui/CardSkeleton.vue'
 import Icon from '@/components/ui/Icon.vue'
 import { useCarousel } from '@/composables/use-carousel'
 import { useListStore } from '@/stores/list'
-import { useShowsStore } from '@/stores/shows'
 import type { Show } from '@/types/show'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useI18n } from 'vue-i18n'
@@ -32,7 +31,6 @@ defineEmits<{
 }>()
 
 const router = useRouter()
-const showsStore = useShowsStore()
 const listStore = useListStore()
 
 const { list, cardsPerPage, cardWidthPercent, translateX, hasTransition, isNavigating, currentPage, totalPages, next, prev, onTransitionEnd } =
@@ -43,8 +41,7 @@ function watchShow(show: Show) {
 }
 
 function browseShow(show: Show) {
-  showsStore.selectShow(show)
-  router.push({ name: 'browse' })
+  router.push({ name: 'browse', params: { id: show.id } })
 }
 </script>
 

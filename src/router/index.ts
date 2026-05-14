@@ -19,7 +19,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/WatchView.vue'),
   },
   {
-    path: '/browse',
+    path: '/browse/:id',
     name: 'browse',
     component: () => import('@/views/BrowseView.vue'),
   },
