@@ -14,25 +14,6 @@ A full walkthrough of every decision that shaped this project — from the first
 
 ---
 
-## Screenshots
-
-**Hero banner**
-![Hero](docs/screenshots/hero.png)
-
-**Carousel**
-![Carousel](docs/screenshots/carousel.png)
-
-**Search**
-![Search](docs/screenshots/search.png)
-
-**My List**
-![My List](docs/screenshots/my-list.png)
-
-**Skeleton loading**
-![Skeletons](docs/screenshots/skeletons.png)
-
----
-
 ## Requirements
 
 | Tool    | Version  |
@@ -205,7 +186,6 @@ src/
     ui/                  → Presentational/dumb components (props in, events out — no store/API access)
     (root)               → Smart components that compose ui/ with stores/composables
   composables/           → Reusable composition functions (use*)
-    use-show-details.ts  → Fetches show + episodes + cast + seasons via TVMaze embed
   router/
     index.ts             → Route definitions
   stores/
@@ -216,8 +196,7 @@ src/
   types/
     show.ts              → App-internal Show, Episode, Season, ShowDetails interfaces
     tvmaze.ts            → Raw TVMaze API response types
-  utils/
-    mappers.ts           → Maps TVMaze API responses to internal types
+  utils/                 → Utility helpers (Sentry, analytics, etc.)
   views/                 → Route-level page components (one per route)
   locales/
     en.json              → English translation strings
