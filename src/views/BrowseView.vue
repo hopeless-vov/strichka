@@ -229,18 +229,24 @@ function watch() {
           </div>
 
           <!-- Episodes grid -->
-          <div
-            v-if="currentSeasonEpisodes.length"
-            class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+          <Transition
+            name="episodes"
+            mode="out-in"
           >
-            <MediaCard
-              v-for="ep in currentSeasonEpisodes"
-              :key="ep.id"
-              :title="`${ep.episodeNumber}. ${ep.name}`"
-              :subtitle="ep.airdate ?? undefined"
-              :image="ep.image"
-            />
-          </div>
+            <div
+              v-if="currentSeasonEpisodes.length"
+              :key="selectedSeason"
+              class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+            >
+              <MediaCard
+                v-for="ep in currentSeasonEpisodes"
+                :key="ep.id"
+                :title="`${ep.episodeNumber}. ${ep.name}`"
+                :subtitle="ep.airdate ?? undefined"
+                :image="ep.image"
+              />
+            </div>
+          </Transition>
         </div>
       </div>
     </template>

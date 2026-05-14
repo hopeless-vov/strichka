@@ -53,3 +53,20 @@
 .page-leave-to {
   opacity: 0;
 }
+
+.episodes-enter-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.episodes-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.episodes-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.episodes-leave-to {
+  opacity: 0;
+}
