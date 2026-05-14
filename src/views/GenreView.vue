@@ -17,15 +17,24 @@ const showsStore = useShowsStore()
 const listStore = useListStore()
 
 const loading = ref(false)
+// TBD: Better to keep this request in the store as it is used in multiple places.
+// For now it's fine to keep it here as it's only used in Home and Genre views and we want to avoid unnecessary complexity in the store.
 const { load } = useHome()
 
 const genreKey = computed(() => route.params.key as string)
 const genreRow = computed(() => showsStore.genreRows.find((r) => t(`${r.key}.url`) === genreKey.value))
-const title = computed(() => (genreRow.value ? t(`${genreRow.value.key}.title`) : ''))
-const shows = computed(() => genreRow.value?.shows ?? [])
+const title = computed(() => genreRow.value ? t(`${genreRow.value.key}.title`) : genreKey.value)
+const shows = computed(() => {
+  if (genreRow.value) return genreRow.value.shows
+  const slug = genreKey.value.toLowerCase()
+  
+  return showsStore.allShows.filter((s) =>
+    s.genres.some((g) => g.toLowerCase() === slug),
+  )
+})
 
 onMounted(async () => {
-  if (!showsStore.genreRows.length) {
+  if (!showsStore.allShows.length) {
     loading.value = true
     await load()
     loading.value = false
@@ -56,7 +65,7 @@ function watchShow(show: (typeof shows.value)[number]) {
       </button>
     </div>
 
-    <h1 class="mb-6 px-[4%] font-heading text-2xl font-bold text-white">
+    <h1 class="mb-6 px-[4%] font-heading text-2xl font-bold text-white capitalize">
       {{ title }}
     </h1>
 

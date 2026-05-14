@@ -39,6 +39,7 @@ export function useHome() {
           : all,
       }))
 
+      showsStore.setAllShows(all)
       showsStore.setGenreRows(rows.value)
     } catch (e) {
       error.value = e instanceof Error ? e.message : 'Unknown error'

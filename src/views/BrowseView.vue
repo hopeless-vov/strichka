@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
+import GenreTag from '@/components/ui/GenreTag.vue'
 import Icon from '@/components/ui/Icon.vue'
 import MediaCard from '@/components/ui/MediaCard.vue'
 import MediaCardSkeleton from '@/components/ui/MediaCardSkeleton.vue'
@@ -166,11 +167,11 @@ function watch() {
               v-if="show.genres.length"
               class="mb-6 flex flex-wrap gap-2"
             >
-              <span
+              <GenreTag
                 v-for="genre in show.genres"
                 :key="genre"
-                class="rounded-sm border border-white/20 px-2.5 py-1 text-xs text-white/60"
-              >{{ genre }}</span>
+                :genre="genre"
+              />
             </div>
 
             <!-- Summary -->

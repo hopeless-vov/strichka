@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
+import GenreTag from '@/components/ui/GenreTag.vue'
 import Icon from '@/components/ui/Icon.vue'
 import type { Show } from '@/types/show'
 import { faCircleInfo, faPlay, faStar } from '@fortawesome/free-solid-svg-icons'
@@ -89,11 +90,11 @@ const summary = computed(() => props.show?.summary?.replace(/<[^>]+>/g, '') ?? '
             v-if="show.network"
             class="text-sm text-white/50"
           >{{ show.network }}</span>
-          <span
+          <GenreTag
             v-for="genre in show.genres.slice(0, 3)"
             :key="genre"
-            class="rounded-sm border border-white/20 px-2 py-px text-xs text-white/60"
-          >{{ genre }}</span>
+            :genre="genre"
+          />
         </div>
 
         <p
