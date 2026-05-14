@@ -63,8 +63,21 @@
   },
   "browse": {
     "back": "Back",
+    "backToHome": "Back to Home",
     "addToList": "Add to My List",
-    "removeFromList": "Remove from List"
+    "removeFromList": "Remove from List",
+    "cast": "Cast",
+    "castSeparator": ": ",
+    "seasons": "Seasons",
+    "episodes": "Episodes",
+    "seasonNumber": "Season {n}",
+    "noImage": "No image",
+    "error": "Failed to load show details",
+    "errorCode": "Oops",
+    "errorCodeFallback": "?",
+    "errorTitle": "Something went wrong",
+    "errorSub": "We couldn't load the show details. Please try again or go back to the main page.",
+    "loading": "Loading..."
   },
   "notFound": {
     "header": "404",
